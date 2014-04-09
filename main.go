@@ -34,9 +34,16 @@ func IsAuth(r *http.Request) bool {
 	if ok {
 		s.Decode("security", sessionValue, &secureCookie)
 		fmt.Printf("SecurityCookie: %s", secureCookie)
+		return true
 	} else {
-		return false
 		fmt.Println("SecurityCookie: %s", "ERROR")
+		return false
+	}
+	return false
+}
+
+func SessionHandler(w http.ResponseWriter, r *http.Request) {
+	if IsAuth(r) == false {
 	}
 }
 
