@@ -23,7 +23,8 @@ type Lobby struct {
 }
 
 type User struct {
-	Name      string
+	Id        int64
+	Username  string
 	Email     string
 	Password  string
 	Hash      string
@@ -52,9 +53,10 @@ func NewLobby(title string, access string, owner *User, state string, game *Game
 	}
 }
 
-func NewUser(name string, email string, password string, hash string, lobby *Lobby) *User {
+func NewUser(id int64, username string, email string, password string, hash string, lobby *Lobby) *User {
 	return &User{
-		Name:     name,
+		Id:       id,
+		Username: username,
 		Email:    email,
 		Password: password,
 		Hash:     hash,
